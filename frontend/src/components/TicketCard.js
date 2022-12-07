@@ -6,7 +6,7 @@ function TicketCard(props) {
   console.log(filteredData)
   return (
     <>
-      {filteredData.result.map((data, i) => {
+      {filteredData.map((data, i) => {
         return (
           <div className="card mb-3" id="ticket_card" key={i}>
             <div className="card-body">

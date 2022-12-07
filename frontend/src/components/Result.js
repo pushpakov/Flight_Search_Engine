@@ -12,16 +12,17 @@ function Result(props) {
     passengerCount,
   } = props;
 
+
   return (
     <div className="card" style={{ height: "100%" }}>
       <div className="card-body">
         {!isSearchClicked &&
         filteredData.length === 0 &&
-        returnFilterData.length === 0 ? (
+        Object.keys(returnFilterData).length === 0 ? (
           <EmptyPage />
         ) : isSearchClicked &&
           filteredData.length === 0 &&
-          returnFilterData.length === 0 ? (
+          Object.keys(returnFilterData).length === 0 ? (
           <div
             className="d-flex justify-content-center"
             style={{ color: "red" }}
@@ -49,21 +50,25 @@ function Result(props) {
                   <div className="col">
                     <div style={{ color: "deepskyblue", fontWeight: "bold" }}>
                       Departure flight
-                      <p>{filteredData.result[0].departureDate}</p>
+                      {(returnFilterData.oneWayData).map((data,P) => 
+                    <p>{data.departureDate}</p>
+                    )}
                     </div>
                     <TicketCard
-                      filteredData={filteredData}
+                      filteredData={returnFilterData.oneWayData}
                       passengerCount={passengerCount}
                     />
                   </div>
-                  {returnFilterData.length && returnFilterData ? (
+                  {returnFilterData.returnData.length && returnFilterData ? (
                     <div className="col">
                       <div style={{ color: "deepskyblue", fontWeight: "bold" }}>
                         Return flight
-                        <p>{returnFilterData.result[1].departureDate}</p>
+                        {(returnFilterData.returnData).map((data,t) => 
+                    <p>{data.departureDate}</p>
+                    )}
                       </div>
                       <TicketCard
-                        filteredData={returnFilterData}
+                        filteredData={returnFilterData.returnData}
                         passengerCount={passengerCount}
                       />
                     </div>
@@ -73,7 +78,9 @@ function Result(props) {
                 <>
                   <div style={{ color: "deepskyblue", fontWeight: "bold" }}>
                     Departure flight
-                    <p>{filteredData.result.departureDate}</p>
+                    {filteredData.map((data,j) => 
+                    <p>{data.departureDate}</p>
+                    )}
                   </div>
                   <TicketCard
                     filteredData={filteredData}

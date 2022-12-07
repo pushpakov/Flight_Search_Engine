@@ -100,10 +100,11 @@ function Filter() {
         data.price <= priceRange
       ) 
         // console.log(data)
-        return data;
+        {return data;}
             
     });
-    setFilteredData(result);
+    setFilteredData(result.result);
+    console.log(filteredData)
   };
 
   const returnFilter = async () => {
@@ -112,10 +113,11 @@ function Filter() {
         data &&
         data.price <= priceRange 
       ) 
-        console.log(data)
-        return data;
+        // console.log(data)
+        {return data;}
     });
-    setReturnFilterData(result);
+    setReturnFilterData(result.result);
+    console.log(returnFilterData)
   };
 
   const handleSearch = () => {

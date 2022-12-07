@@ -76,7 +76,7 @@ app.get("/", async (req, res) => {
         if (returnDate) {
             obj.returnDate = returnDate.trim().split(' ').filter(a => a).join('');
             returnData = await flightModel.find({ originCity: obj.destinationCity, destinationCity: obj.originCity, departureDate: obj.returnDate })
-            return res.status(200).send({ message: "Results matching your query", success: true, code: 200, result: [ oneWayData, returnData ] });
+            return res.status(200).send({ message: "Results matching your query", success: true, code: 200, result: {oneWayData, returnData } });
         }else{
             return res.status(200).send({ message: "Results matching your query", success: true, code: 200, result: oneWayData });
         }
