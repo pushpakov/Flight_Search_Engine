@@ -240,7 +240,7 @@ function Filter() {
                     <InputRange
                       minValue={0}
                       step={100}
-                      maxValue={10000}
+                      maxValue={50000}
                       formatLabel={(price) => `${price}`}
                       value={priceRange}
                       onChange={(price) => setPriceRange(price)}

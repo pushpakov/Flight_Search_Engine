@@ -50,9 +50,9 @@ function Result(props) {
                   <div className="col">
                     <div style={{ color: "deepskyblue", fontWeight: "bold" }}>
                       Departure flight
-                      {(returnFilterData.oneWayData).map((data,P) => 
-                    <p>{data.departureDate}</p>
-                    )}
+                      {/* {(returnFilterData.oneWayData).map((data,k) =>  */}
+                      <p>{returnFilterData.oneWayData[0].departureDate}</p>    
+                    {/* )} */}
                     </div>
                     <TicketCard
                       filteredData={returnFilterData.oneWayData}
@@ -77,10 +77,8 @@ function Result(props) {
               ) : (
                 <>
                   <div style={{ color: "deepskyblue", fontWeight: "bold" }}>
-                    Departure flight
-                    {filteredData.map((data,j) => 
-                    <p>{data.departureDate}</p>
-                    )}
+                    Departure flight                   
+                    <p>{filteredData[0].departureDate}</p>
                   </div>
                   <TicketCard
                     filteredData={filteredData}
