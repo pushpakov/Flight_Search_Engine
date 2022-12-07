@@ -238,7 +238,7 @@ function Filter() {
                   </div>
                   <div className="mt-4 mb-4">
                     <InputRange
-                      minValue={0}
+                      minValue={100}
                       step={100}
                       maxValue={50000}
                       formatLabel={(price) => `${price}`}
